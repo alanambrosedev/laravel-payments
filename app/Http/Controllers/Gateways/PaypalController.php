@@ -17,37 +17,35 @@ class PaypalController extends Controller
 
         $paypalToken = $provider->getAccessToken();
 
-
         $response = $provider->createOrder([
-            "intent" => "CAPTURE",
-            "application_context" => [
-                "return_url" => route('paypal.success'),
-                "cancel_url" => route('paypal.cancel'),
+            'intent' => 'CAPTURE',
+            'application_context' => [
+                'return_url' => route('paypal.success'),
+                'cancel_url' => route('paypal.cancel'),
             ],
-            "purchase_units" => [
+            'purchase_units' => [
                 [
-                    "amount" => [
-                        "currency_code" => "USD",
-                        "value" => $request->price
-                    ]
-                ]
-            ]
+                    'amount' => [
+                        'currency_code' => 'USD',
+                        'value' => $request->price,
+                    ],
+                ],
+            ],
         ]);
 
         // dd($response);
 
-        if(isset($response['id']) && $response['id'] != null){
+        if (isset($response['id']) && $response['id'] != null) {
 
-            foreach($response['links'] as $link){
+            foreach ($response['links'] as $link) {
 
-                if($link['rel'] === 'approve'){
+                if ($link['rel'] === 'approve') {
                     return redirect()->away($link['href']);
                 }
             }
         } else {
             return redirect()->route('paypal.cancel');
         }
-
 
     }
 
