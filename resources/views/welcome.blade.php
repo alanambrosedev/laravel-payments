@@ -35,8 +35,8 @@
                             style="max-width: 3rem" />
 
                             <div class="row">
-                                {{-- <div class="col-md-4 my-2">
-                                    <form action="" method="POST">
+                                <div class="col-md-4 my-2">
+                                    <form action="{{route('paypal.payment')}}" method="POST">
                                         @csrf
                                         <input type="hidden" value="40" name="price">
                                         <button type="submit" class="btn btn-outline-dark flex-shrink-0" type="button">
@@ -45,73 +45,6 @@
                                         </button>
                                     </form>
                                 </div>
-                                <div class="col-md-4 my-2">
-                                    <form action="" method="POST">
-                                        @csrf
-                                        <input type="hidden" value="40" name="price">
-                                        <button type="submit" class="btn btn-outline-dark flex-shrink-0" type="button">
-                                            <i class="bi-cart-fill me-1"></i>
-                                            Buy With Stripe
-                                        </button>
-                                    </form>
-                                </div>
-                                <div class="col-md-4 my-2">
-                                    <form action="" method="POST">
-                                        @csrf
-                                        <script src="https://checkout.razorpay.com/v1/checkout.js"
-                                                data-key="{{config('razorpay.key')}}"
-                                                data-amount="{{ 40 * 100}}"
-                                                data-buttontext="Pay With Razorpay"
-                                                data-name="test payment"
-                                                data-description="Payment"
-                                                data-prefill.name="user"
-                                                data-prefill.email="user@gmail.com"
-                                                data-theme.color="#ff7529">
-                                        </script>
-                                   </form>
-                                </div>
-                                <div class="col-md-4 my-2">
-                                    <a href="" type="submit" class="btn btn-outline-dark flex-shrink-0" type="button">
-                                        <i class="bi-cart-fill me-1"></i>
-                                        Buy With 2CO
-                                    </a>
-                                </div>
-
-                                <div class="col-md-6 my-2">
-                                    <form action="" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="price" value="3700">
-                                        <button type="submit" class="btn btn-outline-dark flex-shrink-0">
-                                            <i class="bi-cart-fill me-1"></i>
-                                            Buy With Instamojo
-                                        </button>
-                                    </form>
-                                </div>
-                                <div class="col-md-4 my-2">
-                                    <form action="" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="price" value="40">
-                                        <button type="submit" class="btn btn-outline-dark flex-shrink-0">
-                                            <i class="bi-cart-fill me-1"></i>
-                                            Buy With Mollie
-                                        </button>
-                                    </form>
-                                </div>
-                                <div class="col-md-4 my-2">
-                                    <a href="" type="submit" class="btn btn-outline-dark flex-shrink-0" type="button">
-                                        <i class="bi-cart-fill me-1"></i>
-                                        Buy With Paystack
-                                    </a>
-                                </div>
-                                <div class="col-md-6 my-2">
-                                    <form action="" method="POST">
-                                        @csrf
-                                        <button type="submit" class="btn btn-outline-dark flex-shrink-0" >
-                                            <i class="bi-cart-fill me-1"></i>
-                                            Buy With Ssscommerz
-                                        </button>
-                                      </form>
-                                </div> --}}
                             </div>
 
                     </div>
