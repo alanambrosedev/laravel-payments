@@ -44,6 +44,8 @@
                                             Buy With Paypal
                                         </button>
                                     </form>
+                                </div>
+                                <div class="col-md-4 my-2">
                                     <form action="{{route('stripe.payment')}}" method="POST">
                                         @csrf
                                         <input type="hidden" value="40" name="price">
@@ -52,6 +54,22 @@
                                             Buy With Stripe
                                         </button>
                                     </form>
+                                </div>
+                                <div class="col-md-4 my-2">
+                                    <form action="{{route('razorpay.payment')}}" method="POST">
+                                        @csrf
+                                        <script src="https://checkout.razorpay.com/v1/checkout.js"
+                                                data-key="{{config('razorpay.key')}}"
+                                                data-amount="{{ 40 * 100}}"
+                                                data-buttontext="Pay With Razorpay"
+                                                data-name="test payment"
+                                                data-description="Payment"
+                                                data-prefill.name="user"
+                                                data-prefill.email="user@gmail.com"
+                                                data-theme.color="#ff7529">
+                                        </script>
+                                   </form>
+                                </div>
                                 </div>
                             </div>
 
