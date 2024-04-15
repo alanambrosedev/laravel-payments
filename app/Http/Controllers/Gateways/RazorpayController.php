@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Gateways;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
 use Razorpay\Api\Api;
 
 class RazorpayController extends Controller
@@ -15,17 +14,17 @@ class RazorpayController extends Controller
 
         $payment = $api->payment->fetch($request->razorpay_payment_id);
 
-        if($request->has('razorpay_payment_id') && $request->filled('razorpay_payment_id')){
+        if ($request->has('razorpay_payment_id') && $request->filled('razorpay_payment_id')) {
             try {
                 $response = $api->payment->fetch($request->razorpay_payment_id)
                     ->capture(['amount' => $payment['amount']]);
-            } catch(\Exception $e) {
+            } catch (\Exception $e) {
                 return $e->getMessage();
             }
         }
 
-        if($request['status'] == 'captured'){
-            return "Payment Successfull!";
+        if ($request['status'] == 'captured') {
+            return 'Payment Successfull!';
         }
     }
 }
